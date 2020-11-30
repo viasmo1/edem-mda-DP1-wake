@@ -4,7 +4,7 @@ services:
   zeppelin:
     image: apache/zeppelin:0.8.1
     volumes:
-      - zeppelin_data:/data/zeppelin
+      - $PWD/data_zeppelin:/zeppelin/data
     ports:
       - "19999:8080"
 
@@ -42,4 +42,3 @@ networks:
 volumes:
     postgres_data:
     pgadmin:
-    zeppelin_data:
