@@ -28,7 +28,7 @@ docker-compose up -d
 
 ### Create postgres server
 
-1. Navigate to [localhost:5050](localhost:5050)
+1. Navigate to [localhost:5050](http://localhost:5050)
 
     - Credentials:
         - *Email:* waketeam@wake.org
