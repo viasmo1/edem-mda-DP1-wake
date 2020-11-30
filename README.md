@@ -17,6 +17,7 @@
 
 2. Navigate to the path where the docker compose file is:
 ```sh
+ls
 README.md		docker-compose.yml
 ```
 
@@ -43,6 +44,9 @@ docker-compose up -d
         - *Password:* WakeDP1
 
 
-## Services
-* [Zeppelin](localhost:19999)
-* [PgAdmin](localhost:5050)
+## Components
+
+| Component | Port |
+| --- | --- |
+| [Zeppelin](http://localhost:19999) | 19999 |
+| [PgAdmin](localhost:5050) | 5432 |
