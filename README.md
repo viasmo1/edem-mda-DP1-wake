@@ -13,7 +13,7 @@
 
 ### Containers set up
 
-1. Git pull the following repo: <a href="https://github.com/viasmo1/edem-mda-DP1-wake" target="_blank">edem-mda-DP1-wake</a>
+1. Git pull the following repo: [edem-mda-DP1-wake](https://github.com/viasmo1/edem-mda-DP1-wake)
 
 2. Navigate to the path where the docker compose file is:
 ```sh
@@ -28,7 +28,7 @@ docker-compose up -d
 
 ### Create postgres server
 
-1. Navigate to <a href="http://localhost:5050" target="_blank">localhost:5050</a>
+1. Navigate to [localhost:5050](http://localhost:5050)
 
     - Credentials:
         - *Email:* waketeam@wake.org
@@ -48,5 +48,5 @@ docker-compose up -d
 
 | Component | Port |
 | --- | --- |
-| <a href="http://localhost:19999" target="_blank">Zeppelin</a> | 19999 |
-| <a href="http://localhost:5050" target="_blank">PgAdmin</a>  | 5432 |
+| [Zeppelin](http://localhost:19999) | 19999 |
+| [PgAdmin](http://localhost:5050) | 5432 |
