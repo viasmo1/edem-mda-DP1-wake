@@ -1,0 +1,45 @@
+version: '3.5'
+ 
+services:
+  zeppelin:
+    image: apache/zeppelin:0.8.1
+    volumes:
+      - zeppelin_data:/data/zeppelin
+    ports:
+      - "19999:8080"
+
+  postgres:
+    image: postgres:12.1
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-WakeTeam}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-WakeDP1}
+      PGDATA: /data/postgres
+    volumes:
+       - postgres_data:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+   
+  pgadmin:
+    image: dpage/pgadmin4:4.16
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-wake@wake.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-WakeTeam}
+    volumes:
+       - pgadmin:/root/.pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+ 
+networks:
+  postgres:
+    driver: bridge
+ 
+volumes:
+    postgres_data:
+    pgadmin:
+    zeppelin_data:
