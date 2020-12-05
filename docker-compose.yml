@@ -6,8 +6,8 @@ services:
     image: webdevops/php-nginx:7.4
     depends_on: 
       - postgres
-    environment: :
-      WEB_DOCUMENT_ROOT: $PWD/webpage
+    volumes:
+      - $PWD/webpage:/app
     ports:
       - "443:443"
 
@@ -15,7 +15,7 @@ services:
     container_name: zeppelin
     image: apache/zeppelin:0.9.0
     volumes:
-      - $PWD/data_zeppelin/:/zeppelin/data/
+      - $PWD/data_zeppelin:/zeppelin/data
     ports:
       - "19999:8080"
 
