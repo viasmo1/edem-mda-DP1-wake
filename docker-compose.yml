@@ -2,6 +2,7 @@ version: '3.5'
  
 services:
   zeppelin:
+    container_name: zeppelin
     image: apache/zeppelin:0.8.1
     volumes:
       - $PWD/data_zeppelin:/zeppelin/data
@@ -9,6 +10,7 @@ services:
       - "19999:8080"
 
   postgres:
+    container_name: postgres
     image: postgres:12.1
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-WakeTeam}
@@ -18,11 +20,10 @@ services:
        - postgres_data:/data/postgres
     ports:
       - "5432:5432"
-    networks:
-      - postgres
     restart: unless-stopped
    
   pgadmin:
+    container_name: pgadmin
     image: dpage/pgadmin4:4.16
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-waketeam@wake.org}
@@ -31,12 +32,10 @@ services:
        - pgadmin:/root/.pgadmin
     ports:
       - "${PGADMIN_PORT:-5050}:80"
-    networks:
-      - postgres
     restart: unless-stopped
  
 networks:
-  postgres:
+  default:
     driver: bridge
  
 volumes:
