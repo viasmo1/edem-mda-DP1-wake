@@ -6,8 +6,8 @@ services:
     image: webdevops/php-nginx:7.4
     depends_on: 
       - postgres
-    volumes:
-      - $PWD/webpage/:/app/
+    environment: :
+      WEB_DOCUMENT_ROOT: $PWD/webpage
     ports:
       - "443:443"
 
