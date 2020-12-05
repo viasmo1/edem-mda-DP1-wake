@@ -1,6 +1,16 @@
 version: '3.5'
  
 services:
+  webpage:
+    container_name: webpage
+    image: webdevops/php-nginx:7.4
+    depends_on: 
+      - postgres
+    volumes:
+      - $PWD/webpage:/app
+    ports:
+      - "443:443"
+
   zeppelin:
     container_name: zeppelin
     image: apache/zeppelin:0.8.1
