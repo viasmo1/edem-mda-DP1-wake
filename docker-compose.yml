@@ -9,7 +9,7 @@ services:
     volumes:
       - $PWD/webpage:/app
     ports:
-      - "443:443"
+      - "80:80"
 
   zeppelin:
     container_name: zeppelin
