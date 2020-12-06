@@ -86,7 +86,7 @@ docker-compose up -d
 
 * In your GCP consoles, navigate to COMPUTE -> Compute Engine -> VM Instances and click on the *External IP* link
 
-**Create postgres server**
+**Add postgres server and create a new database**
 
 * In your web browser, go to: *external_ip:5050*
 
@@ -94,7 +94,7 @@ docker-compose up -d
         - *Email:* waketeam@wake.org
         - *Password:* WakeDP1
 
-* Create a new server with the following configuration:
+* Add a new server with the following configuration:
     - General:
         - *Name:* DP1-Wake
     - Connection:
@@ -103,10 +103,26 @@ docker-compose up -d
         - *Username:* WakeTeam
         - *Password:* WakeDP1
 
+* Create a new database named *WakeTeam*
+<img src="images/create_db.png" width="500"/>
+
+* Add the database schema:
+
+    * Enter the query tool of the database
+    <img src="images/create_db_schema.png" width="350"/>
+
+    * Upload and open the *database_schema.sql* file
+    <img src="images/upload_schema.png" width="500"/>
+
+    * Execute the file. You should now have the tables of the database
+    <img src="images/db_tables.png" width="350"/>
+
 
 ## Components
 
-| Component | Port |
-| --- | --- |
-| Zeppelin | 19999 |
-| PgAdmin | 5432 |
+| Component | Port | Protocol |
+| --- | --- | --- |
+| Zeppelin | 19999 | http |
+| PgAdmin | 5432 | http |
+| Postgres | 5050 | http |
+| Nginx | 433 | https |
