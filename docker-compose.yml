@@ -21,7 +21,7 @@ services:
 
   postgres:
     container_name: postgres
-    image: postgres:latest
+    image: postgres:13.1
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-WakeTeam}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-WakeDP1}
@@ -34,7 +34,7 @@ services:
    
   pgadmin:
     container_name: pgadmin
-    image: dpage/pgadmin4:latest
+    image: dpage/pgadmin4:4.28
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-waketeam@wake.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-WakeDP1}
