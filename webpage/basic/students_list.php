@@ -34,8 +34,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
   <meta charset="utf-8" />
   <title>
-    <?php if ($_SESSION["language"] == "EN") echo "List of students";
-    elseif ($_SESSION["language"] == "ES") echo "Lista de estudiantes"; ?>
+    <?php if ($_SESSION["language"] == "EN") echo "QualityLife - Students";
+    elseif ($_SESSION["language"] == "ES") echo "QualityLife - Estudiantes"; ?>
   </title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="width=device-width, initial-scale=1" name="viewport" />
