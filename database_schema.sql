@@ -42,7 +42,7 @@ CREATE TABLE form (
 	english_level varchar NOT NULL,
 	budget float4 NOT NULL,
 	working_after bool NOT NULL,
-	return_freq text NOT NULL,
+	return_freq varchar NOT NULL,
 	clima varchar NOT NULL,
 	public_transport bool NOT NULL,
 	date timestamp NOT NULL,
