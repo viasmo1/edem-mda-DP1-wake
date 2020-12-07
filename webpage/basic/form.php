@@ -314,18 +314,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                     elseif ($_SESSION["language"] == "ES") echo "Seleccionar grado";
                                     ?>
                                   </option>
-                                  <option value="GIGE">
-                                    <?php
-                                    if ($_SESSION["language"] == "EN") echo "Grado de Ingeniería y Gestión Empresarial";
-                                    elseif ($_SESSION["language"] == "ES") echo "Grado de Ingeniería y Gestión Empresarial";
-                                    ?>
-                                  </option>
-                                  <option value="GACDE">
-                                    <?php
-                                    if ($_SESSION["language"] == "EN") echo "Grado ADE Creación y Dirección de Empresas";
-                                    elseif ($_SESSION["language"] == "ES") echo "Grado ADE Creación y Dirección de Empresas";
-                                    ?>
-                                  </option>
+                                  <?php
+                                  include_once "functions.php";
+                                  // Retrieve degrees from db
+                                  $db = "WakeTeam";
+                                  $conn = connect_db($db);
+                                  $query = "SELECT * from degree";
+                                  $res = pg_query($conn, $query);
+                                  while ($row = pg_fetch_assoc($res)) {
+                                    echo '<option value=' . $row["id"] . '>' . $row["degree"] . '</option>';
+                                  }
+                                  ?>
                                 </select>
                               </div>
                             </div>
