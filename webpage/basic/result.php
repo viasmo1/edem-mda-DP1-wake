@@ -13,6 +13,7 @@ if (isset($_POST["EN"])) {
 if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_POST["email"] == "" || $_POST["degree"] == "" || $_POST["english_level"] == "" || $_POST["budget"] == "" || $_POST["working_after"] == "" || $_POST["return_freq"] == "" || $_POST["clima"] == "" || $_POST["public_transport"] == "") {
   echo '<script type="text/javascript">window.location = "form.php"</script>';
 } else {
+  include_once "functions.php";
   // Connect to db Wake Team
   $db = "WakeTeam";
   $conn = connect_db($db);
@@ -24,15 +25,16 @@ if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_
   $query = "INSERT INTO student (name, age, email) VALUES ('$name', $age, '$email')";
   $res = pg_query($conn, $query);
 
-  // Get new student ic
+  // Get id of new student
   $query = "SELECT max(id) from student";
   $res = pg_query($conn, $query);
-  $id =
+  $row = pg_fetch_assoc($res);
+  $id_student = $row["id"];
 
-    // Insert form result into form table
+  // Insert form result into form table
 
-    // Disconnect db
-    pg_close($conn);
+  // Disconnect db
+  pg_close($conn);
 }
 
 print_r($_SESSION);
