@@ -45,6 +45,7 @@ if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_
 
   // Final result
   $id_city = 1;
+  $_SESSION["id_city"] = $id_city;
 
   // Insert result into form table
   $date = date('d/m/Y h:i:s a', time());
@@ -304,9 +305,14 @@ License: You must have a valid license purchased only from themeforest(the above
                               <tbody>
                                 <?php
                                 include_once "functions.php";
+                                // Connect db
                                 $db = "WakeTeam";
                                 $conn = connect_db($db);
-                                $query = "SELECT * FROM city WHERE id = ";
+                                // Retrieve recommended id_city
+                                $id_city = $_SESSION["id_city"];
+                                $_SESSION["id_city"] = null;
+                                // Query city name, country and university from city table
+                                $query = "SELECT name, country, university FROM city WHERE id = $id_city";
                                 $res = pg_query($conn, $query);
                                 //Print client tablbe
                                 while ($row = pg_fetch_assoc($res)) {
