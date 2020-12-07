@@ -30,7 +30,7 @@ CREATE TABLE city (
 	avg_temp float4 NOT NULL,
 	rainy_days int4 NOT NULL,
 	transport varchar NOT NULL,
-	direct_flight bool NOT NULL,
+	direct_flight int4 NOT NULL,
 	CONSTRAINT city_pkey PRIMARY KEY (id)
 );
 
