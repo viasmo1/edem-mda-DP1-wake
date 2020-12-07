@@ -27,10 +27,12 @@ CREATE TABLE city (
 	university varchar NOT NULL,
 	university_ranking int4 NOT NULL,
 	distance_to_vlc float4 NOT NULL,
+	direct_flight int4 NOT NULL,
 	avg_temp float4 NOT NULL,
 	rainy_days int4 NOT NULL,
-	transport varchar NOT NULL,
-	direct_flight int4 NOT NULL,
+	bike_stations_km float4 NOT NULL,
+	cost_of_living float4 NOT NULL,
+	unemployment_rate float4 NOT NULL,
 	CONSTRAINT city_pkey PRIMARY KEY (id)
 );
 
