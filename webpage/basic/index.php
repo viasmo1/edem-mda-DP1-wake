@@ -213,24 +213,15 @@ License: You must have a valid license purchased only from themeforest(the above
         <h4>
           <?php
           if ($_SESSION["language"] == "EN") echo "Forgot your password ?";
-          elseif ($_SESSION["language"] == "ES") echo "Ha olvidad su contraseña?";
+          elseif ($_SESSION["language"] == "ES") echo "¿Ha olvidado su contraseña?";
           ?>
         </h4>
         <p><?php if ($_SESSION["language"] == "EN") echo "no worries, click ";
-            elseif ($_SESSION["language"] == "ES") echo "pusle aquí"; ?>
+            elseif ($_SESSION["language"] == "ES") echo "pusle"; ?>
           <a href="javascript:;" id="forget-password"><?php if ($_SESSION["language"] == "EN") echo "here ";
                                                       elseif ($_SESSION["language"] == "ES") echo "aquí "; ?> </a>
           <?php if ($_SESSION["language"] == "EN") echo "to see the web admin mail.";
           elseif ($_SESSION["language"] == "ES") echo "para ver el correo del administrador de la plataforma"; ?>
-        </p>
-      </div>
-      <div class="create-account">
-        <p><?php if ($_SESSION["language"] == "EN") echo "Don't have an account yet ?";
-            elseif ($_SESSION["language"] == "ES") echo "Registrarse"; ?>&nbsp;
-          <a href="javascript:;" id="register-btn">
-            <?php if ($_SESSION["language"] == "EN") echo "Create an account";
-            elseif ($_SESSION["language"] == "ES") echo "Crear una cuenta"; ?>
-          </a>
         </p>
       </div>
     </form>
@@ -241,20 +232,20 @@ License: You must have a valid license purchased only from themeforest(the above
       <h3>
         <?php
         if ($_SESSION["language"] == "EN") echo "Forgot your password ?";
-        elseif ($_SESSION["language"] == "ES") echo "Vous avez oubliez le mot de pass ?";
+        elseif ($_SESSION["language"] == "ES") echo "¿Ha olvidado su contraseña?";
         ?>
       </h3>
       <p>
         <?php
         if ($_SESSION["language"] == "EN") echo "Send an e-mail to the web admin to reset your password.";
-        elseif ($_SESSION["language"] == "ES") echo "Envoyez un e-mail à l'administrateur de la page web pour obtenir un noveau mot de pass.";
+        elseif ($_SESSION["language"] == "ES") echo "Envía un correo electrónico al administrador para restablecer su contraseña";
         ?>
       </p>
       <div class="form-group">
         <div class="input-icon">
           <i class="fa fa-envelope"></i>
           <div class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email">
-            admin@admin.com
+            admin@wake.org
           </div>
         </div>
       </div>
@@ -262,427 +253,14 @@ License: You must have a valid license purchased only from themeforest(the above
         <button type="button" id="back-btn" class="btn red btn-outline">
           <?php
           if ($_SESSION["language"] == "EN") echo "Back";
-          elseif ($_SESSION["language"] == "ES") echo "Retourner";
+          elseif ($_SESSION["language"] == "ES") echo "Atrás";
           ?>
         </button>
       </div>
     </form>
     <!-- END FORGOT PASSWORD FORM -->
     <!-- BEGIN REGISTRATION FORM -->
-    <form class="register-form" action="index.php" method="POST">
-      <h3>
-        <?php
-        if ($_SESSION["language"] == "EN") echo "Sign Up";
-        elseif ($_SESSION["language"] == "ES") echo "Enregistrer";
-        ?>
-      </h3>
-      <p>
-        <?php
-        if ($_SESSION["language"] == "EN") echo "Enter your personal details below: ";
-        elseif ($_SESSION["language"] == "ES") echo "Rentrer les détails: ";
-        ?>
-      </p>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "First Name";
-          elseif ($_SESSION["language"] == "ES") echo "Prénom";
-          ?>
-        </label>
-        <div class="input-icon">
-          <i class="fa fa-font"></i>
-          <input class="form-control placeholder-no-fix" type="text" placeholder='<?php if ($_SESSION["language"] == "EN") echo "First Name";
-                                                                                  elseif ($_SESSION["language"] == "ES") echo "Prénom"; ?>' name="firstName" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Last Name";
-          elseif ($_SESSION["language"] == "ES") echo "Nom";
-          ?>
-        </label>
-        <div class="input-icon">
-          <i class="fa fa-font"></i>
-          <input class="form-control placeholder-no-fix" type="text" placeholder='<?php if ($_SESSION["language"] == "EN") echo "Last Name";
-                                                                                  elseif ($_SESSION["language"] == "ES") echo "Nom"; ?>' name="lastName" />
-        </div>
-      </div>
-      <div class="form-group">
-        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Email";
-          elseif ($_SESSION["language"] == "ES") echo "Courrier";
-          ?>
-        </label>
-        <div class="input-icon">
-          <i class="fa fa-envelope"></i>
-          <input class="form-control placeholder-no-fix" type="text" placeholder='<?php if ($_SESSION["language"] == "EN") echo "Email";
-                                                                                  elseif ($_SESSION["language"] == "ES") echo "Courrier"; ?>' name="mail" />
-        </div>
-      </div>
-      <div class="hide" class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Address";
-          elseif ($_SESSION["language"] == "ES") echo "Addresse";
-          ?>
-        </label>
-        <div class="input-icon">
-          <i class="fa fa-check"></i>
-          <input class="form-control placeholder-no-fix" type="text" placeholder='<?php if ($_SESSION["language"] == "EN") echo "Address";
-                                                                                  elseif ($_SESSION["language"] == "ES") echo "Addresse"; ?>' name="address" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "City/Town";
-          elseif ($_SESSION["language"] == "ES") echo "Ville/Village";
-          ?>
-        </label>
-        <div class="input-icon">
-          <i class="fa fa-location-arrow"></i>
-          <input class="form-control placeholder-no-fix" type="text" placeholder='<?php if ($_SESSION["language"] == "EN") echo "City/Town";
-                                                                                  elseif ($_SESSION["language"] == "ES") echo "Ville/Village"; ?>' name="city" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Country";
-          elseif ($_SESSION["language"] == "ES") echo "Pays";
-          ?>
-        </label>
-        <select name="country" id="country_list" class="select2 form-control">
-          <option value=""></option>
-          <option value="AF">Afghanistan</option>
-          <option value="AL">Albania</option>
-          <option value="DZ">Algeria</option>
-          <option value="AS">American Samoa</option>
-          <option value="AD">Andorra</option>
-          <option value="AO">Angola</option>
-          <option value="AI">Anguilla</option>
-          <option value="AR">Argentina</option>
-          <option value="AM">Armenia</option>
-          <option value="AW">Aruba</option>
-          <option value="AU">Australia</option>
-          <option value="AT">Austria</option>
-          <option value="AZ">Azerbaijan</option>
-          <option value="BS">Bahamas</option>
-          <option value="BH">Bahrain</option>
-          <option value="BD">Bangladesh</option>
-          <option value="BB">Barbados</option>
-          <option value="BY">Belarus</option>
-          <option value="BE">Belgium</option>
-          <option value="BZ">Belize</option>
-          <option value="BJ">Benin</option>
-          <option value="BM">Bermuda</option>
-          <option value="BT">Bhutan</option>
-          <option value="BO">Bolivia</option>
-          <option value="BA">Bosnia and Herzegowina</option>
-          <option value="BW">Botswana</option>
-          <option value="BV">Bouvet Island</option>
-          <option value="BR">Brazil</option>
-          <option value="IO">British Indian Ocean Territory</option>
-          <option value="BN">Brunei Darussalam</option>
-          <option value="BG">Bulgaria</option>
-          <option value="BF">Burkina Faso</option>
-          <option value="BI">Burundi</option>
-          <option value="KH">Cambodia</option>
-          <option value="CM">Cameroon</option>
-          <option value="CA">Canada</option>
-          <option value="CV">Cape Verde</option>
-          <option value="KY">Cayman Islands</option>
-          <option value="CF">Central African Republic</option>
-          <option value="TD">Chad</option>
-          <option value="CL">Chile</option>
-          <option value="CN">China</option>
-          <option value="CX">Christmas Island</option>
-          <option value="CC">Cocos (Keeling) Islands</option>
-          <option value="CO">Colombia</option>
-          <option value="KM">Comoros</option>
-          <option value="CG">Congo</option>
-          <option value="CD">Congo, the Democratic Republic of the</option>
-          <option value="CK">Cook Islands</option>
-          <option value="CR">Costa Rica</option>
-          <option value="CI">Cote d'Ivoire</option>
-          <option value="HR">Croatia (Hrvatska)</option>
-          <option value="CU">Cuba</option>
-          <option value="CY">Cyprus</option>
-          <option value="CZ">Czech Republic</option>
-          <option value="DK">Denmark</option>
-          <option value="DJ">Djibouti</option>
-          <option value="DM">Dominica</option>
-          <option value="DO">Dominican Republic</option>
-          <option value="EC">Ecuador</option>
-          <option value="EG">Egypt</option>
-          <option value="SV">El Salvador</option>
-          <option value="GQ">Equatorial Guinea</option>
-          <option value="ER">Eritrea</option>
-          <option value="EE">Estonia</option>
-          <option value="ET">Ethiopia</option>
-          <option value="FK">Falkland Islands (Malvinas)</option>
-          <option value="FO">Faroe Islands</option>
-          <option value="FJ">Fiji</option>
-          <option value="FI">Finland</option>
-          <option value="ES">France</option>
-          <option value="GF">French Guiana</option>
-          <option value="PF">French Polynesia</option>
-          <option value="TF">French Southern Territories</option>
-          <option value="GA">Gabon</option>
-          <option value="GM">Gambia</option>
-          <option value="GE">Georgia</option>
-          <option value="DE">Germany</option>
-          <option value="GH">Ghana</option>
-          <option value="GI">Gibraltar</option>
-          <option value="GR">Greece</option>
-          <option value="GL">Greenland</option>
-          <option value="GD">Grenada</option>
-          <option value="GP">Guadeloupe</option>
-          <option value="GU">Guam</option>
-          <option value="GT">Guatemala</option>
-          <option value="GN">Guinea</option>
-          <option value="GW">Guinea-Bissau</option>
-          <option value="GY">Guyana</option>
-          <option value="HT">Haiti</option>
-          <option value="HM">Heard and Mc Donald Islands</option>
-          <option value="VA">Holy See (Vatican City State)</option>
-          <option value="HN">Honduras</option>
-          <option value="HK">Hong Kong</option>
-          <option value="HU">Hungary</option>
-          <option value="IS">Iceland</option>
-          <option value="IN">India</option>
-          <option value="ID">Indonesia</option>
-          <option value="IR">Iran (Islamic Republic of)</option>
-          <option value="IQ">Iraq</option>
-          <option value="IE">Ireland</option>
-          <option value="IL">Israel</option>
-          <option value="IT">Italy</option>
-          <option value="JM">Jamaica</option>
-          <option value="JP">Japan</option>
-          <option value="JO">Jordan</option>
-          <option value="KZ">Kazakhstan</option>
-          <option value="KE">Kenya</option>
-          <option value="KI">Kiribati</option>
-          <option value="KP">Korea, Democratic People's Republic of</option>
-          <option value="KR">Korea, Republic of</option>
-          <option value="KW">Kuwait</option>
-          <option value="KG">Kyrgyzstan</option>
-          <option value="LA">Lao People's Democratic Republic</option>
-          <option value="LV">Latvia</option>
-          <option value="LB">Lebanon</option>
-          <option value="LS">Lesotho</option>
-          <option value="LR">Liberia</option>
-          <option value="LY">Libyan Arab Jamahiriya</option>
-          <option value="LI">Liechtenstein</option>
-          <option value="LT">Lithuania</option>
-          <option value="LU">Luxembourg</option>
-          <option value="MO">Macau</option>
-          <option value="MK">Macedonia, The Former Yugoslav Republic of</option>
-          <option value="MG">Madagascar</option>
-          <option value="MW">Malawi</option>
-          <option value="MY">Malaysia</option>
-          <option value="MV">Maldives</option>
-          <option value="ML">Mali</option>
-          <option value="MT">Malta</option>
-          <option value="MH">Marshall Islands</option>
-          <option value="MQ">Martinique</option>
-          <option value="MR">Mauritania</option>
-          <option value="MU">Mauritius</option>
-          <option value="YT">Mayotte</option>
-          <option value="MX">Mexico</option>
-          <option value="FM">Micronesia, Federated States of</option>
-          <option value="MD">Moldova, Republic of</option>
-          <option value="MC">Monaco</option>
-          <option value="MN">Mongolia</option>
-          <option value="MS">Montserrat</option>
-          <option value="MA">Morocco</option>
-          <option value="MZ">Mozambique</option>
-          <option value="MM">Myanmar</option>
-          <option value="NA">Namibia</option>
-          <option value="NR">Nauru</option>
-          <option value="NP">Nepal</option>
-          <option value="NL">Netherlands</option>
-          <option value="AN">Netherlands Antilles</option>
-          <option value="NC">New Caledonia</option>
-          <option value="NZ">New Zealand</option>
-          <option value="NI">Nicaragua</option>
-          <option value="NE">Niger</option>
-          <option value="NG">Nigeria</option>
-          <option value="NU">Niue</option>
-          <option value="NF">Norfolk Island</option>
-          <option value="MP">Northern Mariana Islands</option>
-          <option value="NO">Norway</option>
-          <option value="OM">Oman</option>
-          <option value="PK">Pakistan</option>
-          <option value="PW">Palau</option>
-          <option value="PA">Panama</option>
-          <option value="PG">Papua New Guinea</option>
-          <option value="PY">Paraguay</option>
-          <option value="PE">Peru</option>
-          <option value="PH">Philippines</option>
-          <option value="PN">Pitcairn</option>
-          <option value="PL">Poland</option>
-          <option value="PT">Portugal</option>
-          <option value="PR">Puerto Rico</option>
-          <option value="QA">Qatar</option>
-          <option value="RE">Reunion</option>
-          <option value="RO">Romania</option>
-          <option value="RU">Russian Federation</option>
-          <option value="RW">Rwanda</option>
-          <option value="KN">Saint Kitts and Nevis</option>
-          <option value="LC">Saint LUCIA</option>
-          <option value="VC">Saint Vincent and the Grenadines</option>
-          <option value="WS">Samoa</option>
-          <option value="SM">San Marino</option>
-          <option value="ST">Sao Tome and Principe</option>
-          <option value="SA">Saudi Arabia</option>
-          <option value="SN">Senegal</option>
-          <option value="SC">Seychelles</option>
-          <option value="SL">Sierra Leone</option>
-          <option value="SG">Singapore</option>
-          <option value="SK">Slovakia (Slovak Republic)</option>
-          <option value="SI">Slovenia</option>
-          <option value="SB">Solomon Islands</option>
-          <option value="SO">Somalia</option>
-          <option value="ZA">South Africa</option>
-          <option value="GS">South Georgia and the South Sandwich Islands</option>
-          <option value="ES">Spain</option>
-          <option value="LK">Sri Lanka</option>
-          <option value="SH">St. Helena</option>
-          <option value="PM">St. Pierre and Miquelon</option>
-          <option value="SD">Sudan</option>
-          <option value="SR">Suriname</option>
-          <option value="SJ">Svalbard and Jan Mayen Islands</option>
-          <option value="SZ">Swaziland</option>
-          <option value="SE">Sweden</option>
-          <option value="CH">Switzerland</option>
-          <option value="SY">Syrian Arab Republic</option>
-          <option value="TW">Taiwan, Province of China</option>
-          <option value="TJ">Tajikistan</option>
-          <option value="TZ">Tanzania, United Republic of</option>
-          <option value="TH">Thailand</option>
-          <option value="TG">Togo</option>
-          <option value="TK">Tokelau</option>
-          <option value="TO">Tonga</option>
-          <option value="TT">Trinidad and Tobago</option>
-          <option value="TN">Tunisia</option>
-          <option value="TR">Turkey</option>
-          <option value="TM">Turkmenistan</option>
-          <option value="TC">Turks and Caicos Islands</option>
-          <option value="TV">Tuvalu</option>
-          <option value="UG">Uganda</option>
-          <option value="UA">Ukraine</option>
-          <option value="AE">United Arab Emirates</option>
-          <option value="GB">United Kingdom</option>
-          <option value="US">United States</option>
-          <option value="UM">United States Minor Outlying Islands</option>
-          <option value="UY">Uruguay</option>
-          <option value="UZ">Uzbekistan</option>
-          <option value="VU">Vanuatu</option>
-          <option value="VE">Venezuela</option>
-          <option value="VN">Viet Nam</option>
-          <option value="VG">Virgin Islands (British)</option>
-          <option value="VI">Virgin Islands (U.S.)</option>
-          <option value="WF">Wallis and Futuna Islands</option>
-          <option value="EH">Western Sahara</option>
-          <option value="YE">Yemen</option>
-          <option value="ZM">Zambia</option>
-          <option value="ZW">Zimbabwe</option>
-        </select>
-      </div>
-      <p>
-        <?php
-        if ($_SESSION["language"] == "EN") echo "Enter your account details below: ";
-        elseif ($_SESSION["language"] == "ES") echo "Rentrer les détails: ";
-        ?>
-      </p>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Username";
-          elseif ($_SESSION["language"] == "ES") echo "Nom d'utilisateur";
-          ?>
-        </label>
-        <div class="input-icon">
-          <i class="fa fa-user"></i>
-          <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder='<?php if ($_SESSION["language"] == "EN") echo "Username";
-                                                                                                      elseif ($_SESSION["language"] == "ES") echo "Nom d utilisateur"; ?>' name="username" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "User Type";
-          elseif ($_SESSION["language"] == "ES") echo "Type d'utilisateur";
-          ?>
-        </label>
-        <select name="userType" id="user_Type" class="select2 form-control">
-          <option value=""></option>
-          <option value="CE"><?php if ($_SESSION["language"] == "EN") echo "Criteria Expert";
-                              elseif ($_SESSION["language"] == "ES") echo "Expert des critères"; ?></option>
-          <option value="DC"><?php if ($_SESSION["language"] == "EN") echo "Doctor";
-                              elseif ($_SESSION["language"] == "ES") echo "Docteur"; ?></option>
-          <option value="PA"><?php if ($_SESSION["language"] == "EN") echo "Patient";
-                              elseif ($_SESSION["language"] == "ES") echo "Patient"; ?></option>
-          <option value="AS"><?php if ($_SESSION["language"] == "EN") echo "Assistant";
-                              elseif ($_SESSION["language"] == "ES") echo "Assistant"; ?></option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Password";
-          elseif ($_SESSION["language"] == "ES") echo "Mot de pass";
-          ?>
-        </label>
-        <div class="input-icon">
-          <i class="fa fa-lock"></i>
-          <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder='<?php if ($_SESSION["language"] == "EN") echo "Password";
-                                                                                                                                elseif ($_SESSION["language"] == "ES") echo "Mot de pass"; ?>' name="password" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Re-type Your Password";
-          elseif ($_SESSION["language"] == "ES") echo "Saisir à nouveau le mot de pass";
-          ?>
-        </label>
-        <div class="controls">
-          <div class="input-icon">
-            <i class="fa fa-check"></i>
-            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder='<?php if ($_SESSION["language"] == "EN") echo "Re-type your password";
-                                                                                                            elseif ($_SESSION["language"] == "ES") echo "Saisir à nouveau le mot de pass"; ?>' name="rpassword2" />
-          </div>
-        </div>
-      </div>
-      <div class="hide" class="form-group">
-        <label class="mt-checkbox mt-checkbox-outline">
-          <input type="checkbox" name="tnc" /> I agree to the
-          <a href="javascript:;">Terms of Service </a> &
-          <a href="javascript:;">Privacy Policy </a>
-          <span></span>
-        </label>
-        <div id="register_tnc_error"> </div>
-      </div>
-      <div class="form-actions">
-        <button id="register-back-btn" type="button" class="btn red btn-outline">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Back";
-          elseif ($_SESSION["language"] == "ES") echo "Retourner";
-          ?>
-        </button>
-        <button type="submit" id="register-submit-btn" class="btn green pull-right" name="signup" value="true">
-          <?php
-          if ($_SESSION["language"] == "EN") echo "Sign Up";
-          elseif ($_SESSION["language"] == "ES") echo "Enregistrer";
-          ?>
-        </button>
-      </div>
-    </form>
+
     <!-- END REGISTRATION FORM -->
   </div>
   <!-- END LOGIN -->
