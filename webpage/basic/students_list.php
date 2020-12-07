@@ -166,7 +166,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                     <ul class="dropdown-menu pull-left">
                       <li aria-haspopup="true" class="active">
-                        <a href="clients_list.php" class="nav-link ">
+                        <a href="students_list.php" class="nav-link ">
                           <?php if ($_SESSION["language"] == "EN") echo "List of students";
                           elseif ($_SESSION["language"] == "ES") echo "Lista de estudiantes"; ?>
                         </a>

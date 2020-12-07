@@ -24,8 +24,15 @@ if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_
   $query = "INSERT INTO student (name, age, email) VALUES ('$name', $age, '$email')";
   $res = pg_query($conn, $query);
 
-  // Disconnect db
-  pg_close($conn);
+  // Get new student ic
+  $query = "SELECT max(id) from student";
+  $res = pg_query($conn, $query);
+  $id =
+
+    // Insert form result into form table
+
+    // Disconnect db
+    pg_close($conn);
 }
 
 print_r($_SESSION);
@@ -187,7 +194,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                     <ul class="dropdown-menu pull-left">
                       <li aria-haspopup="true">
-                        <a href="clients_list.php" class="nav-link ">
+                        <a href="students_list.php" class="nav-link ">
                           <?php if ($_SESSION["language"] == "EN") echo "List of students";
                           elseif ($_SESSION["language"] == "ES") echo "Lista de estudiantes"; ?>
                         </a>
