@@ -46,7 +46,7 @@ CREATE TABLE form (
 	working_after int4 NOT NULL,
 	return_freq varchar NOT NULL,
 	clima varchar NOT NULL,
-	public_transport int4 NOT NULL,
+	public_bikes int4 NOT NULL,
 	date varchar NOT NULL,
 	id_city int4 NOT NULL,
 	CONSTRAINT form_pkey PRIMARY KEY (id),
