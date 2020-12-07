@@ -26,19 +26,34 @@ if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_
   $res = pg_query($conn, $query);
 
   // Get id of new student
-  $query = "SELECT max(id) from student";
+  $query = "SELECT id from student order by id desc";
   $res = pg_query($conn, $query);
   $row = pg_fetch_assoc($res);
   $id_student = $row["id"];
 
-  // Insert form result into form table
+  // Calculate recommended city
+
+  $id_city = 1;
+
+  // Insert result into form table
+  $id_degree = $_POST["degree"];
+  $english_level = $_POST["english_level"];
+  $budget = $_POST["budget"];
+  $working_after = $_POST["working_after"];
+  $return_freq = $_POST["return_freq"];
+  $clima = $_POST["clima"];
+  $public_transport = $_POST["public_transport"];
+  $date = date('d/m/Y h:i:s a', time());
+  $query = "INSERT INTO form (id_student, id_degree, english_level, budget, working_after, return_freq, clima, public_transport, date, id_city) 
+                      VALUES ($id_student, $id_degree, '$english_level', $budget, $working_after, '$return_freq', '$clima', $public_transport, '$date', $id_city)";
+  $res = pg_query($conn, $query);
 
   // Disconnect db
   pg_close($conn);
 }
 
-print_r($_SESSION);
-print_r($_POST);
+//print_r($_SESSION);
+//print_r($_POST);
 ?>
 <!DOCTYPE html>
 <!--
