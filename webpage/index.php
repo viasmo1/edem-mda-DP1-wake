@@ -1,1 +1,3 @@
-    <h1>Hello world!</h1>
+echo '<script type="text/javascript">
+    window.location = "../basic/index.php"
+</script>';
