@@ -41,16 +41,16 @@ CREATE TABLE form (
 	id_degree int4 NOT NULL,
 	english_level varchar NOT NULL,
 	budget float4 NOT NULL,
-	working_after bool NOT NULL,
+	working_after int4 NOT NULL,
 	return_freq varchar NOT NULL,
 	clima varchar NOT NULL,
-	public_transport bool NOT NULL,
-	date timestamp NOT NULL,
+	public_transport int4 NOT NULL,
+	date varchar NOT NULL,
 	id_city int4 NOT NULL,
 	CONSTRAINT form_pkey PRIMARY KEY (id),
-    CONSTRAINT form_fk FOREIGN KEY (id) REFERENCES student(id),
-    CONSTRAINT form_fk_1 FOREIGN KEY (id) REFERENCES degree(id),
-    CONSTRAINT form_fk_2 FOREIGN KEY (id) REFERENCES city(id)
+    CONSTRAINT form_fk FOREIGN KEY (id_student) REFERENCES student(id),
+    CONSTRAINT form_fk_1 FOREIGN KEY (id_degree) REFERENCES degree(id),
+    CONSTRAINT form_fk_2 FOREIGN KEY (id_city) REFERENCES city(id)
 );
 
 -- admin table and insert web admin
