@@ -257,9 +257,9 @@ License: You must have a valid license purchased only from themeforest(the above
                             include_once "functions.php";
                             $db = "WakeTeam";
                             $conn = connect_db($db);
-                            $query = "SELECT * FROM client";
+                            $query = "SELECT * FROM student";
                             $res = pg_query($conn, $query);
-                            //Print client tablbe
+                            //Print student tablbe
                             while ($row = pg_fetch_assoc($res)) {
                               $output = '';
                               $output .= '
