@@ -31,21 +31,25 @@ if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_
   $row = pg_fetch_assoc($res);
   $id_student = $row["id"];
 
-  // Calculate recommended city
-
-  $id_city = 1;
-
-  // Insert result into form table
+  // CALCULATE RECOMMENDED CITY
+  // Get form variables
   $id_degree = $_POST["degree"];
   $english_level = $_POST["english_level"];
   $budget = $_POST["budget"];
   $working_after = $_POST["working_after"];
   $return_freq = $_POST["return_freq"];
   $clima = $_POST["clima"];
-  $public_transport = $_POST["public_transport"];
+  $public_bikes = $_POST["public_bikes"];
+
+  // Calculate
+
+  // Final result
+  $id_city = 1;
+
+  // Insert result into form table
   $date = date('d/m/Y h:i:s a', time());
-  $query = "INSERT INTO form (id_student, id_degree, english_level, budget, working_after, return_freq, clima, public_transport, date, id_city) 
-                      VALUES ($id_student, $id_degree, '$english_level', $budget, $working_after, '$return_freq', '$clima', $public_transport, '$date', $id_city)";
+  $query = "INSERT INTO form (id_student, id_degree, english_level, budget, working_after, return_freq, clima, public_bikes, date, id_city) 
+                      VALUES ($id_student, $id_degree, '$english_level', $budget, $working_after, '$return_freq', '$clima', $public_bikes, '$date', $id_city)";
   $res = pg_query($conn, $query);
 
   // Disconnect db
@@ -302,7 +306,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 include_once "functions.php";
                                 $db = "WakeTeam";
                                 $conn = connect_db($db);
-                                $query = "SELECT * FROM client";
+                                $query = "SELECT * FROM city WHERE id = ";
                                 $res = pg_query($conn, $query);
                                 //Print client tablbe
                                 while ($row = pg_fetch_assoc($res)) {
