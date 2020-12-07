@@ -467,13 +467,13 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="form-group">
                               <label class="control-label col-md-4">
                                 <?php
-                                if ($_SESSION["language"] == "EN") echo "Are you gonna use public transport?";
-                                elseif ($_SESSION["language"] == "ES") echo "¿Vas a utilizar transporte público?";
+                                if ($_SESSION["language"] == "EN") echo "Are you gonna use public bycilces?";
+                                elseif ($_SESSION["language"] == "ES") echo "¿Vas a utilizar bicicletas públicas?";
                                 ?>
                                 <span class="required" aria-required="true"> * </span>
                               </label>
                               <div class="col-md-8">
-                                <select class="form-control" name="public_transport">
+                                <select class="form-control" name="public_bikes">
                                   <option value="">
                                     <?php
                                     if ($_SESSION["language"] == "EN") echo "Select answer";
