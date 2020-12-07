@@ -160,7 +160,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                     <ul class="dropdown-menu pull-left">
                       <li aria-haspopup="true" class=" ">
-                        <a href="clients_list.php" class="nav-link ">
+                        <a href="students_list.php" class="nav-link ">
                           <?php if ($_SESSION["language"] == "EN") echo "List of students";
                           elseif ($_SESSION["language"] == "ES") echo "Lista de estudiantes"; ?>
                         </a>
@@ -232,7 +232,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <div class="portlet-body">
                       <div class="clearfix">
-                        <a href="clients_list.php" class="btn btn-circle green btn-lg">
+                        <a href="students_list.php" class="btn btn-circle green btn-lg">
                           <?php if ($_SESSION["language"] == "EN") echo "List of students";
                           elseif ($_SESSION["language"] == "ES") echo "Lista de estudiantes"; ?>
                         </a>
