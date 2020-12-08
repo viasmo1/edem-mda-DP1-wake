@@ -81,7 +81,7 @@ git clone https://github.com/viasmo1/edem-mda-DP1-wake
 5. Run the following command
 
 ```sh
- docker build -t postgres_dp1:1.0 .
+docker build -t postgres_dp1:1.0 .
 ```
 
 **Run the docker-compose**
@@ -124,6 +124,14 @@ docker-compose up -d
 
 * Check that the database has been created according to the following schema:
 <img src="images/WakeTeam_db.png" width="500"/>
+
+**Inserting data to the table city**
+
+* Execute the file WakeTeam_DP1.bat to upload the *city* table data to the database
+
+```sh
+WakeTeam_DP1.bat
+```
 
 ## CONGRATULATIONS
 
