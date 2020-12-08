@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_dEOdgDlPEeuO3vM6Msv_xw" name="Wake_Data" id="_dEN2cDlPEeuO3vM6Msv_xw" dataPackage="_dEOdgTlPEeuO3vM6Msv_xw" Server="Localhost 127.0.0.1" FilePath="/Users/javierbrionesgomez/Desktop/df_WakeTeam_DP1.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;,&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true" FieldSeparatorType="Comma"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_dEOdgTlPEeuO3vM6Msv_xw" name="default" dataManager="_dEOdgDlPEeuO3vM6Msv_xw">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_dEOdgjlPEeuO3vM6Msv_xw" id="_WZRocDlPEeuO3vM6Msv_xw" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdgzlPEeuO3vM6Msv_xw" label="Column0" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdhDlPEeuO3vM6Msv_xw" label="ID" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdhTlPEeuO3vM6Msv_xw" label="Name" length="13" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdhjlPEeuO3vM6Msv_xw" label="Country" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdhzlPEeuO3vM6Msv_xw" label="University" length="42" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdiDlPEeuO3vM6Msv_xw" label="University_ranking" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdiTlPEeuO3vM6Msv_xw" label="English_level" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdijlPEeuO3vM6Msv_xw" label="Distance_to_vlc" length="18" precision="14" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdizlPEeuO3vM6Msv_xw" label="Direct_flight" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdjDlPEeuO3vM6Msv_xw" label="Avg_temp" length="4" precision="2" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdjTlPEeuO3vM6Msv_xw" label="Rainy_days" length="3" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdjjlPEeuO3vM6Msv_xw" label="Bikeshare_stations_km2" length="20" precision="19" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdjzlPEeuO3vM6Msv_xw" label="Cost_of_living" length="17" precision="14" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dEOdkDlPEeuO3vM6Msv_xw" label="Unemployment_rate" length="16" precision="15" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
