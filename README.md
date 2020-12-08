@@ -40,7 +40,9 @@
     * Direction of traffic: *Ingress*
     * Targets: *Specified target tags*
     * Target tags: **docker-ports**
-    * Protocols and ports: *Specified protocols and ports* -> *tcp* -> *5432, 5050, 19999*
+    * Source filters: *IP ranges*
+    * Source Ip ranges: **0.0.0.0/0**
+    * Protocols and ports: *Specified protocols and ports* -> *tcp* -> *5432, 5050*
 
 ### Containers set up
 
@@ -62,7 +64,7 @@ echo alias docker-compose="'"'docker run \
 source ~/.bashrc
 ```
 
-**Clone the repo and run the docker-compose**
+**Clone the repo**
 
 3. Git clone the following repo: [edem-mda-DP1-wake](https://github.com/viasmo1/edem-mda-DP1-wake)
 
@@ -70,12 +72,23 @@ source ~/.bashrc
 git clone https://github.com/viasmo1/edem-mda-DP1-wake
 ```
 
-4. Navigate to the path where the docker compose file is:
+4. Go to the repo's folder
+
 ```sh
-cd edem-mda-DP1-wake
+ cd edem-mda-DP1-wake
 ```
 
-5. Run the following command:
+**Build the postgres image with the database integrated**
+
+5. Run the following command
+
+```sh
+docker build -t postgres_dp1:1.0 .
+```
+
+**Run the docker-compose**
+
+6. Run the following command:
 ```sh
 docker-compose up -d
 ```
@@ -86,7 +99,15 @@ docker-compose up -d
 
 * In your GCP consoles, navigate to COMPUTE -> Compute Engine -> VM Instances and click on the *External IP* link
 
-**Add postgres server and create a new database**
+**Components**
+
+| Component | Port | Protocol |
+| --- | --- | --- |
+| PgAdmin | 5432 | http |
+| Postgres | 5050 | http |
+| Nginx | 433 | https |
+
+**Add postgres server and check the database**
 
 * In your web browser, go to: *external_ip:5050*
 
@@ -103,26 +124,20 @@ docker-compose up -d
         - *Username:* WakeTeam
         - *Password:* WakeDP1
 
-* Create a new database named *WakeTeam*
-<img src="images/create_db.png" width="500"/>
+* Check that the database has been created according to the following schema:
+<img src="images/WakeTeam_db.png" width="500"/>
 
-* Add the database schema:
+**Inserting data to the table city**
 
-    * Enter the query tool of the database
-    <img src="images/create_db_schema.png" width="350"/>
+* Execute the file WakeTeam_DP1.bat to upload the *city* table data to the database
 
-    * Upload and open the *database_schema.sql* file
-    <img src="images/upload_schema.png" width="500"/>
+```sh
+WakeTeam_DP1.bat
+```
 
-    * Execute the file. You should now have the tables of the database
-    <img src="images/db_tables.png" width="350"/>
+## CONGRATULATIONS
 
+You are all set! You can now start using the platform.
 
-## Components
+* In your web browser, go to: *https://external_ip*
 
-| Component | Port | Protocol |
-| --- | --- | --- |
-| Zeppelin | 19999 | http |
-| PgAdmin | 5432 | http |
-| Postgres | 5050 | http |
-| Nginx | 433 | https |
