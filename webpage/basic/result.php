@@ -10,26 +10,28 @@ if (isset($_POST["EN"])) {
   $_SESSION["language"] = "ES";
 }
 
-if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_POST["email"] == "" || $_POST["degree"] == "" || $_POST["english_level"] == "" || $_POST["budget"] == "" || $_POST["working_after"] == "" || $_POST["return_freq"] == "" || $_POST["clima"] == "" || $_POST["public_transport"] == "") {
-  echo '<script type="text/javascript">window.location = "form.php"</script>';
-} else {
-  include_once "functions.php";
-  // Connect to db Wake Team
-  $db = "WakeTeam";
-  $conn = connect_db($db);
+if (($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && $_POST["email"] != "" && $_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["public_transport"] != "") || ($_POST["id_student"] != "" && $_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["public_transport"] != "")) {
+  if ($_POST["id_student"] == "") {
+    include_once "functions.php";
+    // Connect to db Wake Team
+    $db = "WakeTeam";
+    $conn = connect_db($db);
 
-  // Insert new student in client table
-  $name = $_POST["name"] . " " . $_POST["surname"];
-  $age = $_POST["age"];
-  $email = $_POST["email"];
-  $query = "INSERT INTO student (name, age, email) VALUES ('$name', $age, '$email')";
-  $res = pg_query($conn, $query);
+    // Insert new student in client table
+    $name = $_POST["name"] . " " . $_POST["surname"];
+    $age = $_POST["age"];
+    $email = $_POST["email"];
+    $query = "INSERT INTO student (name, age, email) VALUES ('$name', $age, '$email')";
+    $res = pg_query($conn, $query);
 
-  // Get id of new student
-  $query = "SELECT id from student order by id desc";
-  $res = pg_query($conn, $query);
-  $row = pg_fetch_assoc($res);
-  $id_student = $row["id"];
+    // Get id of new student
+    $query = "SELECT id from student order by id desc";
+    $res = pg_query($conn, $query);
+    $row = pg_fetch_assoc($res);
+    $id_student = $row["id"];
+  } else {
+    $id_student = $_POST["id_student"];
+  }
 
   // CALCULATE RECOMMENDED CITY
   // Get form variables
@@ -43,6 +45,8 @@ if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_
 
   // Calculate
 
+
+
   // Final result
   $id_city = 1;
   $_SESSION["id_city"] = $id_city;
@@ -50,11 +54,13 @@ if ($_POST["name"] == "" || $_POST["surname"] == "" || $_POST["age"] == "" || $_
   // Insert result into form table
   $date = date('d/m/Y h:i:s a', time());
   $query = "INSERT INTO form (id_student, id_degree, english_level, budget, working_after, return_freq, clima, public_bikes, date, id_city) 
-                      VALUES ($id_student, $id_degree, '$english_level', $budget, $working_after, '$return_freq', '$clima', $public_bikes, '$date', $id_city)";
+                    VALUES ($id_student, $id_degree, '$english_level', $budget, $working_after, '$return_freq', '$clima', $public_bikes, '$date', $id_city)";
   $res = pg_query($conn, $query);
 
   // Disconnect db
   pg_close($conn);
+} else {
+  echo '<script type="text/javascript">window.location = "form.php"</script>';
 }
 
 //print_r($_SESSION);
@@ -314,7 +320,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 // Query city name, country and university from city table
                                 $query = "SELECT name, country, university FROM city WHERE id = $id_city";
                                 $res = pg_query($conn, $query);
-                                //Print client tablbe
+                                //Print recommended city
                                 while ($row = pg_fetch_assoc($res)) {
                                   $output = '';
                                   $output .= '
