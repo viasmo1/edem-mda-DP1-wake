@@ -127,13 +127,9 @@ docker-compose up -d
 * Check that the database has been created according to the following schema:
 <img src="images/WakeTeam_db.png" width="500"/>
 
-**Inserting data to the table city**
+**Insert data to the table city**
 
-* Execute the file WakeTeam_DP1.bat to upload the *city* table data to the database
-
-```sh
-WakeTeam_DP1_run.bat
-```
+(AÑADIR EXPLICACIÓN TALEND JOB)
 
 ## CONGRATULATIONS
 
