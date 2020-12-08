@@ -15,7 +15,6 @@ services:
     container_name: postgres
     image: postgres_dp1:1.0
     environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-WakeDP1}
       PGDATA: /data/postgres
     volumes:
       - postgres_data:/data/postgres
