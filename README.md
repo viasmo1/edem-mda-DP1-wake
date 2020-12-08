@@ -129,7 +129,7 @@ docker-compose up -d
 
 **Insert data to the table city**
 
-(AÑADIR EXPLICACIÓN TALEND JOB)
+* Once the database is created, we upload the data of the **df_WakeTeam_DP1.csv** file inside the datasets folder to the *city* table. For that, we run the **WakeTeam_DP1** job in the data_integration folder using **Talend**
 
 ## CONGRATULATIONS
 
