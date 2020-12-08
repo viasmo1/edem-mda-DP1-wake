@@ -243,6 +243,47 @@ License: You must have a valid license purchased only from themeforest(the above
                               elseif ($_SESSION["language"] == "ES") echo "Información del estudiante";
                               ?>
                             </h3>
+                            <h4 class="block">
+                              <?php
+                              if ($_SESSION["language"] == "EN") echo "Select existing student";
+                              elseif ($_SESSION["language"] == "ES") echo "Seleccionar estudiante existente";
+                              ?>
+                            </h4>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">
+                                <?php
+                                if ($_SESSION["language"] == "EN") echo "Existing student";
+                                elseif ($_SESSION["language"] == "ES") echo "Estudiante existente";
+                                ?>
+                              </label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="id_student">
+                                  <option value="">
+                                    <?php
+                                    if ($_SESSION["language"] == "EN") echo "Select student";
+                                    elseif ($_SESSION["language"] == "ES") echo "Seleccionar estudiante";
+                                    ?>
+                                  </option>
+                                  <?php
+                                  include_once "functions.php";
+                                  // Retrieve degrees from db
+                                  $db = "WakeTeam";
+                                  $conn = connect_db($db);
+                                  $query = "SELECT id, name from student";
+                                  $res = pg_query($conn, $query);
+                                  while ($row = pg_fetch_assoc($res)) {
+                                    echo '<option value=' . $row["id"] . '>' . $row["name"] . '</option>';
+                                  }
+                                  ?>
+                                </select>
+                              </div>
+                            </div>
+                            <h4 class="block">
+                              <?php
+                              if ($_SESSION["language"] == "EN") echo "New student";
+                              elseif ($_SESSION["language"] == "ES") echo "Nuevo estudiante";
+                              ?>
+                            </h4>
                             <div class="form-group">
                               <label class="control-label col-md-4">
                                 <?php
