@@ -261,7 +261,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             include_once "functions.php";
                             $db = "WakeTeam";
                             $conn = connect_db($db);
-                            $query = "SELECT student.id, student.name, student.age, student.email, city.name FROM student INNER JOIN form ON student.id=form.id_student INNER JOIN city ON city.id=form.id_city";
+                            $query = "SELECT student.id, student.name as st_name, student.age, student.email, city.name as c_name FROM student INNER JOIN form ON student.id=form.id_student INNER JOIN city ON city.id=form.id_city";
                             $res = pg_query($conn, $query);
                             //Print student tablbe
                             while ($row = pg_fetch_assoc($res)) {
@@ -269,10 +269,10 @@ License: You must have a valid license purchased only from themeforest(the above
                               $output .= '
                                     <tr>
                                       <td style="text-align:center;">' . $row["id"] . '</td>
-                                      <td style="text-align:center;">' . $row["name"] . '</td>
+                                      <td style="text-align:center;">' . $row["st_name"] . '</td>
                                       <td style="text-align:center;">' . $row["age"] . '</td>
                                       <td style="text-align:center;">' . $row["email"] . '</td>
-                                      <td style="text-align:center;">' . $row["id_city"] . '</td>
+                                      <td style="text-align:center;">' . $row["c_name"] . '</td>
                                     </tr>
                                   ';
                               echo $output;
