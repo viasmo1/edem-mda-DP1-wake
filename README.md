@@ -40,7 +40,9 @@
     * Direction of traffic: *Ingress*
     * Targets: *Specified target tags*
     * Target tags: **docker-ports**
-    * Protocols and ports: *Specified protocols and ports* -> *tcp* -> *5432, 5050, 19999*
+    * Source filters: *IP ranges*
+    * Source Ip ranges: **0.0.0.0/0**
+    * Protocols and ports: *Specified protocols and ports* -> *tcp* -> *5432, 5050*
 
 ### Containers set up
 
