@@ -132,7 +132,7 @@ docker-compose up -d
 * Execute the file WakeTeam_DP1.bat to upload the *city* table data to the database
 
 ```sh
-WakeTeam_DP1.bat
+WakeTeam_DP1_run.bat
 ```
 
 ## CONGRATULATIONS
