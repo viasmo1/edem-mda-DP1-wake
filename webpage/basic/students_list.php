@@ -161,8 +161,8 @@ License: You must have a valid license purchased only from themeforest(the above
                   </li>
                   <li aria-haspopup="true" class="active menu-dropdown classic-menu-dropdown">
                     <a href="javascript:;">
-                      <?php if ($_SESSION["language"] == "EN") echo "Clients";
-                      elseif ($_SESSION["language"] == "ES") echo "Clientes"; ?><span class="arrow"></span>
+                      <?php if ($_SESSION["language"] == "EN") echo "Students";
+                      elseif ($_SESSION["language"] == "ES") echo "Estudiantes"; ?><span class="arrow"></span>
                     </a>
                     <ul class="dropdown-menu pull-left">
                       <li aria-haspopup="true" class="active">
@@ -261,7 +261,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             include_once "functions.php";
                             $db = "WakeTeam";
                             $conn = connect_db($db);
-                            $query = "SELECT student.id, student.name, student.age, student.email, form.id_city FROM student INNER JOIN form ON student.id=form.id_student";
+                            $query = "SELECT student.id, student.name, student.age, student.email, city.name FROM student INNER JOIN form ON student.id=form.id_student INNER JOIN city ON city.id=form.id_city";
                             $res = pg_query($conn, $query);
                             //Print student tablbe
                             while ($row = pg_fetch_assoc($res)) {

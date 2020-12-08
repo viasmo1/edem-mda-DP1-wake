@@ -155,8 +155,8 @@ License: You must have a valid license purchased only from themeforest(the above
                   </li>
                   <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown">
                     <a href="javascript:;">
-                      <?php if ($_SESSION["language"] == "EN") echo "Clients";
-                      elseif ($_SESSION["language"] == "ES") echo "Clientes"; ?><span class="arrow"></span>
+                      <?php if ($_SESSION["language"] == "EN") echo "Students";
+                      elseif ($_SESSION["language"] == "ES") echo "Estudiantes"; ?><span class="arrow"></span>
                     </a>
                     <ul class="dropdown-menu pull-left">
                       <li aria-haspopup="true" class=" ">
