@@ -10,7 +10,7 @@ if (isset($_POST["EN"])) {
   $_SESSION["language"] = "ES";
 }
 
-if (($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && $_POST["email"] != "" && $_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["public_transport"] != "") || ($_POST["id_student"] != "" && $_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["public_transport"] != "")) {
+if (($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && $_POST["email"] != "" && $_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["public_bikes"] != "") || ($_POST["id_student"] != "" && $_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["public_bikes"] != "")) {
   if ($_POST["id_student"] == "") {
     include_once "functions.php";
     // Connect to db Wake Team
