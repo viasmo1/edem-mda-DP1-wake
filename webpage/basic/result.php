@@ -48,7 +48,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
 
 
   // Final result
-  $id_city = 1;
+  $id_city = 6;
   $_SESSION["id_city"] = $id_city;
 
   // Insert result into form table
