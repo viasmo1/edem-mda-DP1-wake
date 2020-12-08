@@ -241,7 +241,7 @@ License: You must have a valid license purchased only from themeforest(the above
                           <thead>
                             <tr>
                               <th width="10%" style="text-align:center;"> id </th>
-                              <th width="40%" style="text-align:center;">
+                              <th width="30%" style="text-align:center;">
                                 <?php if ($_SESSION["language"] == "EN") echo "Name";
                                 elseif ($_SESSION["language"] == "ES") echo "Nombre"; ?>
                               </th>
@@ -249,7 +249,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <?php if ($_SESSION["language"] == "EN") echo "Age";
                                 elseif ($_SESSION["language"] == "ES") echo "Edad"; ?>
                               </th>
-                              <th width="40%" style="text-align:center;">Email</th>
+                              <th width="30%" style="text-align:center;">Email</th>
+                              <th width="20%" style="text-align:center;">
+                                <?php if ($_SESSION["language"] == "EN") echo "City";
+                                elseif ($_SESSION["language"] == "ES") echo "Ciudad"; ?>
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -257,7 +261,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             include_once "functions.php";
                             $db = "WakeTeam";
                             $conn = connect_db($db);
-                            $query = "SELECT * FROM student";
+                            $query = "SELECT student.id, student.name, student.age, student.email, form.id_city FROM student INNER JOIN form ON student.id=form.id_student";
                             $res = pg_query($conn, $query);
                             //Print student tablbe
                             while ($row = pg_fetch_assoc($res)) {
@@ -268,6 +272,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <td style="text-align:center;">' . $row["name"] . '</td>
                                       <td style="text-align:center;">' . $row["age"] . '</td>
                                       <td style="text-align:center;">' . $row["email"] . '</td>
+                                      <td style="text-align:center;">' . $row["id_city"] . '</td>
                                     </tr>
                                   ';
                               echo $output;
