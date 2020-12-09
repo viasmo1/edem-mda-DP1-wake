@@ -106,7 +106,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '\n';
 
 
-  $query = "SELECT id FROM city WHERE $budget >= cost_of_living 
+  $query = "SELECT id, name FROM city WHERE $budget >= cost_of_living 
                                 AND $public_bikes <= bike_stations_km 
                                 AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
                                 AND avg_temp BETWEEN $min_temp AND $max_temp 
