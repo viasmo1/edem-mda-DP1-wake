@@ -530,7 +530,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                   <option value="normal">
                                     <?php
                                     if ($_SESSION["language"] == "EN") echo "Not much";
-                                    elseif ($_SESSION["language"] == "ES") echo "No mucho";
+                                    elseif ($_SESSION["language"] == "ES") echo "De vez en cuando";
                                     ?>
                                   </option>
                                   <option value="poco">
