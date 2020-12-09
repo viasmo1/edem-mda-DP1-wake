@@ -131,10 +131,9 @@ License: You must have a valid license purchased only from themeforest(the above
         $result = pg_query($conn, $query);
 
         //Converts query result into array
-        $table = array();
         $table = pg_fetch_assoc($result);
 
-        if (count($table) == 0) {
+        if ($table["username"] == "") {
           if ($_SESSION["language"] == "EN") {
             echo '<div class="alert alert-danger">';
             echo '<button class="close" data-close="alert"></button>';
