@@ -106,7 +106,6 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   }
 
   // Save result in SESSION variable
-  echo $id_city;
   $_SESSION["id_city"] = $id_city;
 
   // Insert result into form table
