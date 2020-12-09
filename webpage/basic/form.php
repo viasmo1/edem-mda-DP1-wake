@@ -162,7 +162,7 @@ License: You must have a valid license purchased only from themeforest(the above
                       </li>
                     </ul>
                   </li>
-                  <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown">
+                  <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown" <?php if ($_SESSION["username"] != "admin") echo "style='display:none;'"; ?>>
                     <a href="javascript:;">
                       <?php if ($_SESSION["language"] == "EN") echo "Students";
                       elseif ($_SESSION["language"] == "ES") echo "Estudiantes"; ?><span class="arrow"></span>
