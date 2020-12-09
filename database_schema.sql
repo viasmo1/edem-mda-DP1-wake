@@ -63,5 +63,5 @@ create table users (
 	CONSTRAINT amdin_pkey PRIMARY KEY (id)
 );
 -- insert users credentials into users table
-insert into admin (username, password) values ('admin', 'admin');
-insert into admin (username, password) values ('user', 'user')
+insert into users (username, password) values ('admin', 'admin');
+insert into users (username, password) values ('user', 'user')
