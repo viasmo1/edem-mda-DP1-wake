@@ -106,7 +106,9 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '\n';
 
 
-  $query = "SELECT id FROM city WHERE $budget >= cost_of_living AND $public_bikes <= bike_stations_km AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
+  $query = "SELECT id FROM city WHERE $budget >= cost_of_living 
+                                AND $public_bikes <= bike_stations_km 
+                                AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
                                 AND avg_temp BETWEEN $min_temp AND $max_temp 
                                 AND rainy_days BETWEEN $min_rain AND $max_rain
                                 AND (distance_to_vlc <= $distance OR direct_flight = $direct_flight)
@@ -121,7 +123,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
     $id_city = -1;
     echo 'holaaaaaa';
   } else {
-    $id_city = (int)$row["id"];
+    $id_city = $row["id"];
     echo 'adioooooooos';
   }
 
