@@ -119,9 +119,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   //Converts query result into array
   $row2 = pg_fetch_assoc($res2);
   // Check if there is a result with the selected variables
-  echo $row2["id"];
-  echo '\n';
-  if (count($row2) == 0) {
+  if ($row2["id"] == "") {
     $id_city = -1;
     echo 'holaaaaaa';
   } else {
