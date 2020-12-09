@@ -105,8 +105,8 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
 
   // Insert result into form table
   $date = date('d/m/Y h:i:s a', time());
-  $query = "INSERT INTO form (id_student, id_degree, english_level, budget, working_after, return_freq, clima, public_bikes, date, id_city) 
-                    VALUES ($id_student, $id_degree, '$english_level', $budget, $working_after, '$return_freq', '$clima', $public_bikes, '$date', $id_city)";
+  $query = "INSERT INTO form (id_student, id_degree, english_level, budget, working_after, return_freq, clima, rain, public_bikes, date, id_city) 
+                    VALUES ($id_student, $id_degree, '$english_level', $budget, $working_after, '$return_freq', '$clima', '$rain', $public_bikes, '$date', $id_city)";
   $res = pg_query($conn, $query);
 
   // Disconnect db
@@ -364,11 +364,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <?php
                                 if ($_SESSION["id_city"] == null) {
                                   $output = '';
-                                  $output .= '
-                                    <tr>
-                                      <td style="text-align:center;">LAMENTABLEMENTE, NO HEMOS PODIDO ENCONTRAR NINGUNA CIUDAD ACORDE CON TUS CRITERIOS</td>
-                                    </tr>
-                                  ';
+                                  $output .= '<tr>LAMENTABLEMENTE, NO HEMOS PODIDO ENCONTRAR NINGUNA CIUDAD ACORDE CON TUS CRITERIOS</tr>';
                                   echo $output;
                                 } else {
                                   include_once "functions.php";
