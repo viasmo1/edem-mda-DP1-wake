@@ -121,6 +121,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   // Check if there is a result with the selected variables
   echo count($row2);
   print_r($row2);
+  echo $row2;
   if (count($row2) == 0) {
     $id_city = -1;
     echo 'holaaaaaa';
