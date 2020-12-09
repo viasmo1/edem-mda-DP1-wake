@@ -93,6 +93,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
             ORDER BY university_ranking ASC LIMIT 1";
   $res = pg_query($conn, $query);
   //Converts query result into array
+  $row = array();
   $row = pg_fetch_assoc($res);
   // Check if there is a result with the selected variables
   if (count($row) == 0) {
