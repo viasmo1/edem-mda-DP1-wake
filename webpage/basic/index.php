@@ -127,7 +127,7 @@ License: You must have a valid license purchased only from themeforest(the above
         $password = $_POST["password"];
 
         //Do a query to know if username exists
-        $query = "SELECT username, password FROM admin WHERE username='$username' ";
+        $query = "SELECT username, password FROM users WHERE username='$username' ";
         $result = pg_query($conn, $query);
 
         //Converts query result into array
