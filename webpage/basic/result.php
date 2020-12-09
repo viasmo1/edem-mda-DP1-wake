@@ -33,6 +33,8 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   }
 
   // CALCULATE RECOMMENDED CITY
+  // Initialize $id_city
+  $id_city = -1;
   // Get form variables
   $id_degree = $_POST["degree"];
   $english_level = $_POST["english_level"];
@@ -123,7 +125,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
     $id_city = -1;
     echo 'holaaaaaa';
   } else {
-    $id_city = $row["id"];
+    $id_city = $row2["id"];
     echo 'adioooooooos';
   }
 
