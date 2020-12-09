@@ -106,20 +106,20 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '\n';
 
 
-  $query = "SELECT id, name FROM city WHERE $budget >= cost_of_living 
+  $query2 = "SELECT id FROM city WHERE $budget >= cost_of_living 
                                 AND $public_bikes <= bike_stations_km 
                                 AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
                                 AND avg_temp BETWEEN $min_temp AND $max_temp 
                                 AND rainy_days BETWEEN $min_rain AND $max_rain
                                 AND (distance_to_vlc <= $distance OR direct_flight = $direct_flight)
             ORDER BY university_ranking ASC LIMIT 1";
-  $res = pg_query($conn, $query);
+  $res2 = pg_query($conn, $query2);
   //Converts query result into array
-  $row = pg_fetch_assoc($res);
+  $row2 = pg_fetch_assoc($res2);
   // Check if there is a result with the selected variables
-  echo count($row);
-  print_r($row);
-  if (count($row) == 0) {
+  echo count($row2);
+  print_r($row2);
+  if (count($row2) == 0) {
     $id_city = -1;
     echo 'holaaaaaa';
   } else {
@@ -143,8 +143,9 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '<script type="text/javascript">window.location = "form.php"</script>';
 }
 
-//print_r($_SESSION);
-//print_r($_POST);
+echo '/////';
+print_r($_SESSION);
+print_r($_POST);
 ?>
 <!DOCTYPE html>
 <!--
