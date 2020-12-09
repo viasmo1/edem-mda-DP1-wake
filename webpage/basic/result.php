@@ -363,7 +363,7 @@ License: You must have a valid license purchased only from themeforest(the above
                               </thead>
                               <tbody>
                                 <?php
-                                if ($_SESSION["id_city"] == null) {
+                                if ($_SESSION["id_city"] == -1) {
                                   $output = '';
                                   $output .= '<tr>LAMENTABLEMENTE, NO HEMOS PODIDO ENCONTRAR NINGUNA CIUDAD ACORDE CON TUS CRITERIOS</tr>';
                                   echo $output;
