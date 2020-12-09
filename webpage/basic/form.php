@@ -508,6 +508,43 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="form-group">
                               <label class="control-label col-md-4">
                                 <?php
+                                if ($_SESSION["language"] == "EN") echo "Do you like rainy days?";
+                                elseif ($_SESSION["language"] == "ES") echo "¿Te gustan los días lluviosos?";
+                                ?>
+                                <span class="required" aria-required="true"> * </span>
+                              </label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="rain">
+                                  <option value="">
+                                    <?php
+                                    if ($_SESSION["language"] == "EN") echo "Select answer";
+                                    elseif ($_SESSION["language"] == "ES") echo "Seleccionar respuesta";
+                                    ?>
+                                  </option>
+                                  <option value="mucho">
+                                    <?php
+                                    if ($_SESSION["language"] == "EN") echo "A lot";
+                                    elseif ($_SESSION["language"] == "ES") echo "Mucho";
+                                    ?>
+                                  </option>
+                                  <option value="normal">
+                                    <?php
+                                    if ($_SESSION["language"] == "EN") echo "Not much";
+                                    elseif ($_SESSION["language"] == "ES") echo "No mucho";
+                                    ?>
+                                  </option>
+                                  <option value="poco">
+                                    <?php
+                                    if ($_SESSION["language"] == "EN") echo "Hate them";
+                                    elseif ($_SESSION["language"] == "ES") echo "Para nada";
+                                    ?>
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-4">
+                                <?php
                                 if ($_SESSION["language"] == "EN") echo "Are you gonna use public bycilces?";
                                 elseif ($_SESSION["language"] == "ES") echo "¿Vas a utilizar bicicletas públicas?";
                                 ?>
