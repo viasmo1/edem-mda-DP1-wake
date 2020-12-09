@@ -90,6 +90,21 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '\n';
   echo $public_bikes;
   echo '\n';
+  echo $working_after;
+  echo '\n';
+  echo $min_temp;
+  echo '\n';
+  echo $max_temp;
+  echo '\n';
+  echo $min_rain;
+  echo '\n';
+  echo $max_rain;
+  echo '\n';
+  echo $distance;
+  echo '\n';
+  echo $direct_flight;
+  echo '\n';
+
 
   $query = "SELECT id FROM city WHERE $budget >= cost_of_living AND $public_bikes <= bike_stations_km AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
                                 AND avg_temp BETWEEN $min_temp AND $max_temp 
