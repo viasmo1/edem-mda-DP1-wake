@@ -93,7 +93,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
             ORDER BY university_ranking ASC LIMIT 1";
   $res = pg_query($conn, $query);
   //Converts query result into array
-  $row = pg_fetch_assoc($result);
+  $row = pg_fetch_assoc($res);
   // Check if there is a result with the selected variables
   if (count($row) == 0) {
     $id_city = -1;
@@ -116,8 +116,8 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '<script type="text/javascript">window.location = "form.php"</script>';
 }
 
-print_r($_SESSION);
-print_r($_POST);
+//print_r($_SESSION);
+//print_r($_POST);
 ?>
 <!DOCTYPE html>
 <!--
