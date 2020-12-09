@@ -97,7 +97,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   if (count($row) == 0) {
     $id_city = -1;
   } else {
-    $id_city = $row["id"];
+    $id_city = (int)$row["id"];
   }
 
   // Save result in SESSION variable
