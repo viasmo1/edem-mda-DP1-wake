@@ -10,13 +10,12 @@ if (isset($_POST["EN"])) {
   $_SESSION["language"] = "ES";
 }
 
-if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && $_POST["email"] != "") || ($_POST["id_student"] != "")) && ($_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["public_bikes"] != "")) {
+if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && $_POST["email"] != "") || ($_POST["id_student"] != "")) && ($_POST["degree"] != "" && $_POST["english_level"] != "" && $_POST["budget"] != "" && $_POST["working_after"] != "" && $_POST["return_freq"] != "" && $_POST["clima"] != "" && $_POST["rain"] != "" && $_POST["public_bikes"] != "")) {
+  include_once "functions.php";
+  // Connect to db Wake Team
+  $db = "WakeTeam";
+  $conn = connect_db($db);
   if ($_POST["id_student"] == "") {
-    include_once "functions.php";
-    // Connect to db Wake Team
-    $db = "WakeTeam";
-    $conn = connect_db($db);
-
     // Insert new student in client table
     $name = $_POST["name"] . " " . $_POST["surname"];
     $age = $_POST["age"];
@@ -41,14 +40,67 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   $working_after = $_POST["working_after"];
   $return_freq = $_POST["return_freq"];
   $clima = $_POST["clima"];
+  $rain = $_POST["rain"];
   $public_bikes = $_POST["public_bikes"];
 
-  // Calculate
+  // QUERY VARIABLES
+  // unemployment_rate
+  $avg_unemployment_rate = 12.2860625;
+  // avg_temp
+  $avg_temp = 14;
+  $std_temp = 4.81;
+  if ($clima == "frio") {
+    $min_temp = -50;
+    $max_temp = $avg_temp - $std_temp;
+  } else if ($clima == "templado") {
+    $min_temp = $avg_temp - $std_temp;
+    $max_temp = $avg_temp + $std_temp;
+  } else if ($clima == "calor") {
+    $min_temp = $avg_temp + $std_temp;
+    $max_temp = 100;
+  }
+  // rain
+  $avg_rain = 130;
+  $std_rain = 35;
+  if ($rain == "poco") {
+    $min_rain = 0;
+    $max_rain = $avg_rain - $std_rain;
+  } else if ($rain == "normal") {
+    $min_rain = $avg_rain - $std_rain;
+    $max_rain = $avg_rain + $std_rain;
+  } else if ($rain == "mucho") {
+    $min_rain = $avg_rain + $std_rain;
+    $max_rain = 365;
+  }
+  // ditance_to_vlc and direct_flight
+  $avg_dist = 4157;
+  $max_dist = 11273;
+  if ($return_freq == "mucho") {
+    $direct_flight = 1;
+    $distance = 1500;
+  } else if ($return_freq == "normal") {
+    $direct_flight = 0;
+    $distance = $avg_dist;
+  } else if ($return_freq == "poco") {
+    $direct_flight = 0;
+    $distance = $max_dist;
+  }
 
+  $query = "SELECT id FROM city WHERE $budget >= cost_of_living AND $public_bikes <= bike_stations_km AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
+                                AND $min_temp <= avg_temp <= $max_temp AND $min_rain <= rainy_days <= $max_rain
+                                AND (distance_to_vlc <= $distance OR direct_flight = $direct_flight)
+            ORDER BY university_ranking ASC LIMIT 1";
+  $res = pg_query($conn, $query);
+  //Converts query result into array
+  $row = pg_fetch_assoc($result);
+  // Check if there is a result with the selected variables
+  if (count($row) == 0) {
+    $id_city = null;
+  } else {
+    $id_city = $row["id"];
+  }
 
-
-  // Final result
-  $id_city = 2;
+  // Save result in SESSION variable
   $_SESSION["id_city"] = $id_city;
 
   // Insert result into form table
@@ -310,30 +362,40 @@ License: You must have a valid license purchased only from themeforest(the above
                               </thead>
                               <tbody>
                                 <?php
-                                include_once "functions.php";
-                                // Connect db
-                                $db = "WakeTeam";
-                                $conn = connect_db($db);
-                                // Retrieve recommended id_city
-                                $id_city = $_SESSION["id_city"];
-                                $_SESSION["id_city"] = null;
-                                // Query city name, country and university from city table
-                                $query = "SELECT name, country, university FROM city WHERE id = $id_city";
-                                $res = pg_query($conn, $query);
-                                //Print recommended city
-                                while ($row = pg_fetch_assoc($res)) {
+                                if ($_SESSION["id_city"] == null) {
                                   $output = '';
                                   $output .= '
+                                    <tr>
+                                      <td style="text-align:center;">LAMENTABLEMENTE, NO HEMOS PODIDO ENCONTRAR NINGUNA CIUDAD ACORDE CON TUS CRITERIOS</td>
+                                    </tr>
+                                  ';
+                                  echo $output;
+                                } else {
+                                  include_once "functions.php";
+                                  // Connect db
+                                  $db = "WakeTeam";
+                                  $conn = connect_db($db);
+                                  // Retrieve recommended id_city
+                                  $id_city = $_SESSION["id_city"];
+                                  $_SESSION["id_city"] = null;
+                                  // Query city name, country and university from city table
+                                  $query = "SELECT name, country, university FROM city WHERE id = $id_city";
+                                  $res = pg_query($conn, $query);
+                                  //Print recommended city
+                                  while ($row = pg_fetch_assoc($res)) {
+                                    $output = '';
+                                    $output .= '
                                     <tr>
                                       <td style="text-align:center;">' . $row["name"] . '</td>
                                       <td style="text-align:center;">' . $row["country"] . '</td>
                                       <td style="text-align:center;">' . $row["university"] . '</td>
                                     </tr>
                                   ';
-                                  echo $output;
+                                    echo $output;
+                                  }
+                                  //Close ddbb
+                                  pg_close($conn);
                                 }
-                                //Close ddbb
-                                pg_close($conn);
                                 ?>
                               </tbody>
                             </table>
