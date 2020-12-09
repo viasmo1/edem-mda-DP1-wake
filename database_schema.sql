@@ -48,7 +48,7 @@ CREATE TABLE form (
 	clima varchar NOT NULL,
 	public_bikes int4 NOT NULL,
 	date varchar NOT NULL,
-	id_city int4 NOT NULL,
+	id_city int4,
 	CONSTRAINT form_pkey PRIMARY KEY (id),
     CONSTRAINT form_fk FOREIGN KEY (id_student) REFERENCES student(id),
     CONSTRAINT form_fk_1 FOREIGN KEY (id_degree) REFERENCES degree(id),
