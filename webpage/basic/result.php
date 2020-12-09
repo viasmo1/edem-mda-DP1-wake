@@ -86,6 +86,11 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
     $distance = $max_dist;
   }
 
+  echo $budget;
+  echo '\n';
+  echo $public_bikes;
+  echo '\n';
+
   $query = "SELECT id FROM city WHERE $budget >= cost_of_living AND $public_bikes <= bike_stations_km AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
                                 AND avg_temp BETWEEN $min_temp AND $max_temp 
                                 AND rainy_days BETWEEN $min_rain AND $max_rain
@@ -96,6 +101,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   $row = pg_fetch_assoc($res);
   // Check if there is a result with the selected variables
   echo count($row);
+  echo $row;
   if (count($row) == 0) {
     $id_city = -1;
     echo 'holaaaaaa';
