@@ -114,8 +114,9 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
                                 AND avg_temp BETWEEN $min_temp AND $max_temp 
                                 AND rainy_days BETWEEN $min_rain AND $max_rain
                                 AND (distance_to_vlc <= $distance OR direct_flight = $direct_flight)
-            ORDER BY university_ranking ASC LIMIT 1";
+            ORDER BY university_ranking ASC";
   $res2 = pg_query($conn, $query2);
+  echo $res2;
   //Converts query result into array
   $row2 = pg_fetch_assoc($res2);
   // Check if there is a result with the selected variables
