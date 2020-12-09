@@ -93,17 +93,19 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
             ORDER BY university_ranking ASC LIMIT 1";
   $res = pg_query($conn, $query);
   //Converts query result into array
-  $row = array();
   $row = pg_fetch_assoc($res);
   // Check if there is a result with the selected variables
+  echo count($row);
   if (count($row) == 0) {
     $id_city = -1;
-    echo 'holaaaaaaaaaa';
+    echo 'holaaaaaa';
   } else {
-    $id_city = $row["id"];
+    $id_city = (int)$row["id"];
+    echo 'adioooooooos';
   }
 
   // Save result in SESSION variable
+  echo $id_city;
   $_SESSION["id_city"] = $id_city;
 
   // Insert result into form table
