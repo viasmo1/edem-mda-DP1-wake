@@ -88,26 +88,6 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
     $distance = $max_dist;
   }
 
-  echo $budget;
-  echo '\n';
-  echo $public_bikes;
-  echo '\n';
-  echo $working_after;
-  echo '\n';
-  echo $min_temp;
-  echo '\n';
-  echo $max_temp;
-  echo '\n';
-  echo $min_rain;
-  echo '\n';
-  echo $max_rain;
-  echo '\n';
-  echo $distance;
-  echo '\n';
-  echo $direct_flight;
-  echo '\n';
-
-
   $query2 = "SELECT id FROM city WHERE $budget >= cost_of_living 
                                 AND $public_bikes <= bike_stations_km 
                                 AND $working_after/$avg_unemployment_rate <= 1/unemployment_rate
@@ -121,10 +101,8 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   // Check if there is a result with the selected variables
   if ($row2["id"] == "") {
     $id_city = -1;
-    echo 'holaaaaaa';
   } else {
     $id_city = $row2["id"];
-    echo 'adioooooooos';
   }
 
   // Save result in SESSION variable
@@ -143,9 +121,8 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '<script type="text/javascript">window.location = "form.php"</script>';
 }
 
-echo '/////';
-print_r($_SESSION);
-print_r($_POST);
+//print_r($_SESSION);
+//print_r($_POST);
 ?>
 <!DOCTYPE html>
 <!--
