@@ -34,14 +34,14 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
 
   // CALCULATE RECOMMENDED CITY
   // Get form variables
-  $id_degree = $_POST["degree"];
+  $id_degree = (int)$_POST["degree"];
   $english_level = $_POST["english_level"];
-  $budget = $_POST["budget"];
-  $working_after = $_POST["working_after"];
+  $budget = (float)$_POST["budget"];
+  $working_after = (int)$_POST["working_after"];
   $return_freq = $_POST["return_freq"];
   $clima = $_POST["clima"];
   $rain = $_POST["rain"];
-  $public_bikes = $_POST["public_bikes"];
+  $public_bikes = (int)$_POST["public_bikes"];
 
   // QUERY VARIABLES
   // unemployment_rate
@@ -116,8 +116,8 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
   echo '<script type="text/javascript">window.location = "form.php"</script>';
 }
 
-//print_r($_SESSION);
-//print_r($_POST);
+print_r($_SESSION);
+print_r($_POST);
 ?>
 <!DOCTYPE html>
 <!--
