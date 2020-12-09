@@ -117,12 +117,16 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
             ORDER BY university_ranking ASC";
   $res2 = pg_query($conn, $query2);
   echo $res2;
+  echo '\n';
   //Converts query result into array
   $row2 = pg_fetch_assoc($res2);
   // Check if there is a result with the selected variables
   echo count($row2);
+  echo '\n';
   print_r($row2);
+  echo '\n';
   echo $row2;
+  echo '\n';
   if (count($row2) == 0) {
     $id_city = -1;
     echo 'holaaaaaa';
