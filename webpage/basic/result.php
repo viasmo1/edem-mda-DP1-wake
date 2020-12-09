@@ -102,7 +102,7 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
 
   // Save result in SESSION variable
   $_SESSION["id_city"] = $id_city;
-  $id_city = null;
+  $id_city = 1;
 
   // Insert result into form table
   $date = date('d/m/Y h:i:s a', time());
