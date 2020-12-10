@@ -35,6 +35,9 @@ CREATE TABLE city (
 	unemployment_rate float4 NOT NULL,
 	CONSTRAINT city_pkey PRIMARY KEY (id)
 );
+-- insert null city to save forms with no recommended city
+insert into city (id, name, country, university, university_ranking, distance_to_vlc, direct_flight, avg_temp, rainy_days, bike_stations_km, cost_of_living, unemployment_rate) 
+				values (-1, 'NULL', 'NULL', 'NULL', -1, -1, -1, -1, -1, -1, -1, -1);
 
 -- form table
 CREATE TABLE form (
