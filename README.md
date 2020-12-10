@@ -137,3 +137,5 @@ You are all set! You can now start using the platform.
 
 * In your web browser, go to: *https://external_ip*
 
+## TUTORIAL
+[Start to use Wake](https://www.youtube.com/watch?v=WNkiFGORD00)
