@@ -81,10 +81,10 @@ if ((($_POST["name"] != "" && $_POST["surname"] != "" && $_POST["age"] != "" && 
     $direct_flight = 1;
     $distance = 1500;
   } else if ($return_freq == "normal") {
-    $direct_flight = 0;
+    $direct_flight = 1;
     $distance = $avg_dist;
   } else if ($return_freq == "poco") {
-    $direct_flight = 0;
+    $direct_flight = 1;
     $distance = $max_dist;
   }
 
