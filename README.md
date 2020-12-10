@@ -137,5 +137,13 @@ You are all set! You can now start using the platform.
 
 * In your web browser, go to: *https://external_ip*
 
+* Students view:
+    * Username: **user**
+    * Password: **user**
+
+* Admin view:
+    * Username: **admin**
+    * Password: **admin**
+
 ## TUTORIAL
 [Start to use Wake](https://www.youtube.com/watch?v=WNkiFGORD00)
