@@ -143,7 +143,7 @@ You are all set! You can now start using the platform.
     * Username: **WakeTeam**
     * Password: **WakeDP1**
 
-### Using the web
+### Using the platform
 
 * In your web browser, go to: *https://external_ip*
 
