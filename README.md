@@ -42,7 +42,7 @@
     * Target tags: **docker-ports**
     * Source filters: *IP ranges*
     * Source Ip ranges: **0.0.0.0/0**
-    * Protocols and ports: *Specified protocols and ports* -> *tcp* -> *5432, 5050*
+    * Protocols and ports: *Specified protocols and ports* -> *tcp* -> *5432, 5050, 3000*
 
 ### Containers set up
 
@@ -105,6 +105,7 @@ docker-compose up -d
 | --- | --- | --- |
 | PgAdmin | 5432 | http |
 | Postgres | 5050 | http |
+| Metabase | 3000 | http |
 | Nginx | 433 | https |
 
 **Add postgres server and check the database**
@@ -134,6 +135,15 @@ docker-compose up -d
 ## CONGRATULATIONS
 
 You are all set! You can now start using the platform.
+
+### Visualization of the database: Metabase
+
+* In your web browser, go to: *http://external_ip:3000*
+
+    * Username: **WakeTeam**
+    * Password: **WakeDP1**
+
+### Using the web
 
 * In your web browser, go to: *https://external_ip*
 
