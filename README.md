@@ -156,4 +156,4 @@ You are all set! You can now start using the platform.
     * Password: **admin**
 
 ## TUTORIAL
-[App Wake](https://www.youtube.com/watch?v=bQes1Oz1c6s)
+[Start to use Wake](https://www.youtube.com/watch?v=WNkiFGORD00&t=175s)
